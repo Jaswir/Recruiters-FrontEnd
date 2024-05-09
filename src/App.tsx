@@ -11,6 +11,7 @@ import { Label } from './components/ui/label';
 
 function App() {
   const textInputRef = useRef(null);
+  const url = `https://hire-chat-backend-bd580f5a0fb7.herokuapp.com`;
   const [company, setCompany] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,6 +24,8 @@ function App() {
 
   const handleButtonClick = async () => {
     const queryInput = textInputRef.current.value;
+   
+
     console.log('Query:', queryInput);
 
 
@@ -34,7 +37,7 @@ function App() {
     setLoading(true);
 
     axios
-      .get(`https://hire-chat-backend-500d6356f1a0.herokuapp.com/query/?prompt=${queryInput}&company=Gitlab`)
+      .get(`${url}/query/?prompt=${queryInput}&company=Gitlab`)
       .then((response) => {
         // Handle the response
         console.log(response.data);
@@ -54,7 +57,7 @@ function App() {
     formData.append('uploaded_file', file);
 
     axios
-      .post(`https://hire-chat-backend-500d6356f1a0.herokuapp.com/upload/?company=${company}`, formData, {
+      .post(`${url}/upload/?company=${company}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
