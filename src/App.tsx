@@ -11,7 +11,7 @@ import { Label } from './components/ui/label';
 
 function App() {
   const textInputRef = useRef(null);
-  const url = `https://hire-chat-backend-bd580f5a0fb7.herokuapp.com`;
+  const url = `https://hire-chat-backend-52eeedde6e28.herokuapp.com`;
   const [company, setCompany] = useState('');
   const [response, setResponse] = useState('');
   const [loading, setLoading] = useState(false);
